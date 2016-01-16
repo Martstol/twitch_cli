@@ -7,23 +7,23 @@ Created for the lulz.
 
 ## Dependencies
 
-* Python 3.4.3+
-* livestreamer
-* vlc
+ Python 3.4.3+
+ livestreamer
+ vlc
 
 ## Usage
 
 ```bash
-$ twitch *username*
+$ twitch username
 ```
 
-Watch *username's* stream with vlc in best available quality.
+Watch username's stream with vlc in best available quality.
 
 ```bash
-$ twitch -u *username*
+$ twitch -u username
 ```
 
-Login to *username's* account. Will prompt for password.
+Login to username's account. Will prompt for password.
 
 ```bash
 $ twitch -f
@@ -38,8 +38,8 @@ $ twitch
 List games by number of viewers
 
 ```bash
-$ twitch -g *game*
+$ twitch -g game
 ```
 
-List top streamers for *game*
+List top streamers for game
 
