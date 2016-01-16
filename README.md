@@ -13,23 +13,33 @@ Created for the lulz.
 
 ## Usage
 
-* twitch *username*
+```bash
+$ twitch *username*
+```
 
 Watch *username's* stream with vlc in best available quality.
 
-* twitch -u *username*
+```bash
+$ twitch -u *username*
+```
 
 Login to *username's* account. Will prompt for password.
 
-* twitch -f
+```bash
+$ twitch -f
+```
 
 List streamers you are following.
 
-* twitch
+```bash
+$ twitch
+```
 
 List games by number of viewers
 
-* twitch -g *game*
+```bash
+$ twitch -g *game*
+```
 
 List top streamers for *game*
 
