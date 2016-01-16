@@ -32,7 +32,7 @@ $ twitch -f
 List streamers you are following.
 
 ```bash
-$ twitch
+$ twitch -t
 ```
 
 List games by number of viewers

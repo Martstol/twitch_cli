@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-import argparse
 import requests
 import twitch_urls as urls
 import user
 import error
+import args
 
 def topgames(limit=10, offset=0):
     args = urls.formatargs({"limit": limit, "offset": offset})
@@ -28,6 +28,7 @@ def formattopgame(json):
     viewers = json["viewers"]
     return "{: <40}".format(game["name"]) + str(viewers)
 
+args = args.get_parser().parse_args()
+print(args)
 
-printtopgames()
 
