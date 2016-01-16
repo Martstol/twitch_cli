@@ -1,3 +1,12 @@
+# Twitch CLI
+
+## About
+
+## Dependencies
+
+* Python 3.4.3+
+* livestreamer
+
 ## Usage
 
 * twitch *username*
