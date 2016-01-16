@@ -4,6 +4,7 @@ import twitch_urls as urls
 import user
 import error
 import args
+import subprocess
 
 
 def getrequest(url, params):
@@ -60,6 +61,16 @@ def formatgame(json):
     return "{: <20}".format(streamer) + "{: <80}".format(title) + str(viewers)
 
 
+def openlivestreamer(name):
+    cmd = "livestreamer twitch.tv/" + name + " best"
+    proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    status = proc.wait()
+    if status != 0:
+        print("An error occured!")
+        print(status.stderr.read())
+
+
+
 parser = args.get_parser()
 args = parser.parse_args()
 if args.top:
@@ -67,7 +78,7 @@ if args.top:
 elif args.game:
     printgamestreams(" ".join(args.game))
 elif args.stream:
-    print(args.stream)
+    openlivestreamer(args.stream)
 elif args.follows:
     print(args.follows)
 elif args.user:
