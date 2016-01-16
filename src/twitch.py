@@ -5,10 +5,16 @@ import user
 import error
 import args
 
+
+def getrequest(url, params):
+    headers = {"accept": "application/vnd.twitchtv.v3+json"}
+    return requests.get(url, params=params, headers=headers)
+
+
 def topgames(limit=10, offset=0):
-    args = urls.formatargs({"limit": limit, "offset": offset})
-    url = urls.topgames() + args
-    response = requests.get(url)
+    url = urls.topgames()
+    args = {"limit": limit, "offset": offset}
+    response = getrequest(url, args)
     if (urls.valid(response)):
         return response.json()
     else:
@@ -27,6 +33,11 @@ def formattopgame(json):
     game = json["game"]
     viewers = json["viewers"]
     return "{: <40}".format(game["name"]) + str(viewers)
+
+
+def printgamestreams(game):
+    pass
+
 
 parser = args.get_parser()
 args = parser.parse_args()
