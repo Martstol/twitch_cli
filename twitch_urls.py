@@ -1,4 +1,7 @@
 
+def valid(response):
+    return response.status_code == 200
+
 def base():
     return "https://api.twitch.tv/kraken"
 

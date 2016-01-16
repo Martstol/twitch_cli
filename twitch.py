@@ -8,7 +8,7 @@ def topgames(limit=10, offset=0):
     args = urls.formatargs({"limit": limit, "offset": offset})
     url = urls.topgames() + args
     response = requests.get(url)
-    if (response.status_code == 200):
+    if (urls.valid(response)):
         return response.json()
     else:
         error.failfast(response)
