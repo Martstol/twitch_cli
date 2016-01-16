@@ -15,7 +15,7 @@ def topgames(limit=10, offset=0):
     url = urls.topgames()
     args = {"limit": limit, "offset": offset}
     response = getrequest(url, args)
-    if (urls.valid(response)):
+    if urls.valid(response):
         return response.json()
     else:
         error.failfast(response)
@@ -35,8 +35,29 @@ def formattopgame(json):
     return "{: <40}".format(game["name"]) + str(viewers)
 
 
-def printgamestreams(game):
-    pass
+def gamestreams(name, limit=10, offset=0):
+    url = urls.game()
+    args = {"game": name, "limit": limit, "offset": offset}
+    response = getrequest(url, args)
+    if urls.valid(response):
+        return response.json()
+    else:
+        error.failfast(response)
+
+
+def printgamestreams(name, limit=10, offset=0):
+    gamelist = [formatgame(json) for json in gamestreams(name, limit, offset)["streams"]]
+    header = "{: <20}".format("STREAMER") + "{: <80}".format("TITLE") + "VIEWERS"
+    streams = "\n".join(gamelist)
+    out = header + "\n\n" + streams
+    print(out)
+
+
+def formatgame(json):
+    viewers = json["viewers"]
+    streamer = json["channel"]["name"]
+    title = json["channel"]["status"]
+    return "{: <20}".format(streamer) + "{: <80}".format(title) + str(viewers)
 
 
 parser = args.get_parser()
@@ -44,7 +65,7 @@ args = parser.parse_args()
 if args.top:
     printtopgames()
 elif args.game:
-    print(" ".join(args.game))
+    printgamestreams(" ".join(args.game))
 elif args.stream:
     print(args.stream)
 elif args.follows:
