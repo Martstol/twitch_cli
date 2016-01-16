@@ -2,6 +2,9 @@
 
 ## About
 
+Command-line interface for accessing a limited number of twitch features from the command-line.
+Created for the lulz.
+
 ## Dependencies
 
 * Python 3.4.3+
