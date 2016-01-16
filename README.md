@@ -8,7 +8,7 @@ Created for the lulz.
 ## Dependencies
 
 * Python 3.4.3+
-* livestreamer
+* [livestreamer](http://docs.livestreamer.io/)
 * vlc
 
 ## Usage
