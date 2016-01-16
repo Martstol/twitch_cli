@@ -66,8 +66,7 @@ def openlivestreamer(name):
     proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     status = proc.wait()
     if status != 0:
-        print("An error occured!")
-        print(status.stderr.read())
+        print(proc.stdout.read().decode("ascii").strip().split("\n")[-1])
 
 
 
