@@ -14,15 +14,15 @@ Created for the lulz.
 ## Usage
 
 ```bash
-$ twitch username         # Watch username's stream with vlc in best available quality.
+$ twitch username         # Watch username's stream with vlc in best available quality
 ```
 
 ```bash
-$ twitch -u username      # Login to username's account. Will prompt for password.
+$ twitch -u username      # Login to username's account. Will prompt for password
 ```
 
 ```bash
-$ twitch -f               # List streamers you are following.
+$ twitch -f               # List streamers you are following (if logged in)
 ```
 
 ```bash
