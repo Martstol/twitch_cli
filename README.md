@@ -9,6 +9,7 @@ Created for the lulz.
 
 * Python 3.4.3+
 * livestreamer
+* vlc
 
 ## Usage
 
