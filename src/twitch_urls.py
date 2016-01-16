@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 def valid(response):
     return response.status_code == 200

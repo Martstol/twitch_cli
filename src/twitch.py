@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import argparse
 import requests
 import twitch_urls as urls
