@@ -28,7 +28,18 @@ def formattopgame(json):
     viewers = json["viewers"]
     return "{: <40}".format(game["name"]) + str(viewers)
 
-args = args.get_parser().parse_args()
-print(args)
-
+parser = args.get_parser()
+args = parser.parse_args()
+if args.top:
+    printtopgames()
+elif args.game:
+    print(" ".join(args.game))
+elif args.stream:
+    print(args.stream)
+elif args.follows:
+    print(args.follows)
+elif args.user:
+    print(args.user)
+else:
+    parser.print_usage()
 
