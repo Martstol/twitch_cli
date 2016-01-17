@@ -5,6 +5,10 @@ import user
 import error
 import args
 import subprocess
+import getpass
+
+def clientid():
+    return "l9sezw9vvl2azkde7hxf9yu31yyaxjs"
 
 
 def getrequest(url, params):
@@ -69,6 +73,15 @@ def openlivestreamer(name):
         print(proc.stdout.read().decode("ascii").strip().split("\n")[-1])
 
 
+def login(username):
+    password = getpass.getpass()
+    url = urls.auth()
+    args = {"response_type": "token", "client_id": clientid(), "redirect_uri": "http://localhost", "scope": "user_read"}
+    response = requests.get(url, params=args)
+    print(response.status_code)
+    print(response.headers)
+    print(response.text)
+
 
 parser = args.get_parser()
 args = parser.parse_args()
@@ -81,7 +94,7 @@ elif args.stream:
 elif args.follows:
     print(args.follows)
 elif args.user:
-    print(args.user)
+    login(args.user)
 else:
     parser.print_usage()
 

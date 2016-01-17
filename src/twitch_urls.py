@@ -12,3 +12,6 @@ def topgames():
 def game():
     return base() + "/streams"
 
+def auth():
+    return base() + "/oauth2/authorize"
+
