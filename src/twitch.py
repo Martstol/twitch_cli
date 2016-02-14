@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python3
+#-*- coding: utf-8 -*-
 import requests
 import twitch_urls as urls
 import user
