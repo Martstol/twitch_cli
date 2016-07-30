@@ -17,7 +17,7 @@ def getrequest(url, params):
     return requests.get(url, params=params, headers=headers)
 
 
-def topgames(limit=10, offset=0):
+def topgames(limit, offset=0):
     url = urls.topgames()
     args = {"limit": limit, "offset": offset}
     response = getrequest(url, args)
@@ -27,7 +27,7 @@ def topgames(limit=10, offset=0):
         error.failfast(response)
 
 
-def printtopgames(limit=10, offset=0):
+def printtopgames(limit, offset=0):
     toplist = [formattopgame(json) for json in topgames(limit, offset)["top"]]
     header = "{: <40}".format("GAME") + "VIEWERS"
     games = "\n".join(toplist)
@@ -86,10 +86,11 @@ def login(username):
 
 parser = args.get_parser()
 args = parser.parse_args()
+print(args)
 if args.top:
-    printtopgames()
+    printtopgames(args.top)
 elif args.game:
-    printgamestreams(" ".join(args.game))
+    printgamestreams(args.game)
 elif args.stream:
     openlivestreamer(args.stream)
 elif args.follows:
